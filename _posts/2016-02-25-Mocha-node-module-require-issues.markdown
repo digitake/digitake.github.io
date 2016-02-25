@@ -24,11 +24,11 @@ My idea is to try to intercept the `require` function so it remap 'view/cell' to
 Luckily, after I dug down stackoverflow, I had bumped to `mock-require` module which saved my day.
  
 The solution looks like this:
-```javascript
 
+```coffeescript
 mock = require('mock-require')
 mock('view/cell', '../../script/view/cell')
 global.Board = require('../../script/view/board') #now I can load view/board.
 ```
-
+ 
 phew..., that was easy.
