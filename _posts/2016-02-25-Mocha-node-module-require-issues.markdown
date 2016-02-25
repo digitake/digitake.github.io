@@ -14,7 +14,7 @@ Because my view consists of two classes:
 - view/cell
 
 Board has a dependency on **Cell** class so I have to include a require statement  `require('view/cell')`.
-The code is smoothly compiled into a single file using browserify. But when I try to write a test using
+The code was smoothly compiled into a single file using browserify. But when I tried to write a test using
 *mocha*, the problem arose.
 
 The statement can't be resolved because mocha didn't read *package.json* configs just as 
@@ -31,4 +31,7 @@ mock('view/cell', '../../script/view/cell')
 global.Board = require('../../script/view/board') #now I can load view/board.
 ```
  
-phew..., that was easy.
+phew..., that was easy but take me 2 hours to figure it out.
+Actually, I imagine that you can go further by loading package.json and resolving paths 
+regard to current location of test file and remap all the paths. Or maybe, there are some modules out there 
+that do just as I want. If you know one please twit me. 
