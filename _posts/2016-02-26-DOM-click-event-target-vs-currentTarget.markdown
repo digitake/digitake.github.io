@@ -14,12 +14,12 @@ Example:
     <div id="inner">
     </div>
 </div>
-```
-
-```coffeescript
-$('#outer').on 'click', (evt) ->
-    console.log evt.currentTarget
-    console.log evt.current
+<script>
+$('#outer').on('click', funciton(evt) {
+        console.log(evt.currentTarget);
+        console.log(evt.current);
+    });
+</script>
 ```
 
 The currentTarget will be `#outer` and the target will be `#inner`.
