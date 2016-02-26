@@ -9,7 +9,8 @@ categories: DOM, Javascript, HTML
 `event.currentTarget` is the object which a listener is attached.
 
 Example:
-```html
+
+```HTML
 <div id="outer">
     <div id="inner">
     </div>
