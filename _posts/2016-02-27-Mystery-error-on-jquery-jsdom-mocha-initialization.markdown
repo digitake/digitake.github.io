@@ -57,3 +57,7 @@ So, I changed the code order to do `require('jquery')(window)` before `global.wi
 Finally, it works! Surely, somethings is mess on how jsdom manage its scope.
 
 Have any suggestion or did I miss anything? Pls twitt me.
+
+-- Update 1
+Just found a blog talking on jQuery behavior on Node.js vs Browser
+[jQuery behavior on Node.js vs Browser]:http://quaintous.com/2015/07/31/jqery-node-mystery/
