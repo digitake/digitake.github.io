@@ -116,7 +116,7 @@ map f (first:rest) = f first : map f rest
 #### ทำงานยังไง: Unification and Substitution
 ในการทำงานจริงโดยมากเราใช้ [Algorithm W] ซึ่งเป็นผลงานของ Hindley-Milner Type inference
 แต่หัวใจหลักในการทำงานอยู่ที่คอนเซปง่ายๆในการ **รวมและแทนค่า(Unification and Substitution)**
-โดยตัว unification คือการพยายามหาจุดร่วมของไทป์โดยการขยับขึ้นข้างบน และ substitution คือการทดลองแทนที่ด้วยไท์ืที่จะทำให้เงื่อนไข
+โดยตัว unification คือการพยายามหาจุดร่วมของไทป์โดยการขยับขึ้นข้างบน และ substitution คือการทดลองแทนที่ด้วยไทป์ที่จะทำให้เงื่อนไข
 สอดคล้องกับไทป์ทั้งหมด
 
 ตัวอย่าง algorithm unify จาก <https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system#Algorithm_W>
@@ -133,6 +133,12 @@ unify(ta,tb):
   else
     error 'types do not match'
 ```
+
+จากตัวอย่าง algorithm จะเห็นว่าแนวคิดง่ายมาก คือการดำเนินการ unify type ทำทีละคู่
+ถ้า ta และ tb อยู่ในรูปของ Monadic(หรือ container เช่น list) ให้ไล่ unify parameter แต่ละคู่
+แต่ถ้า ta,tb ตัวใดตัวหนึ่งเป็น type variable เราสามารถใช้ type ของอีกตัวเป็นผลลัพธ์ในการ unify ได้เลย
+แต่หากทั้ง ta และ tb เป็น type variable ทั้งคู่ ผลลัพธ์ก็จะเป็น type variable ด้วย
+กรณีนอกจากนี้ถือว่า type ta และ tb ไม่สามารถ unify ได้
 
 หากผู้อ่านสนใจศึกษารายละเอียดสามารถใช้ Keywords: Type inference, Hindley-Milner, Unification, Algorithm W เพิ่มเติมได้ครับ
 
