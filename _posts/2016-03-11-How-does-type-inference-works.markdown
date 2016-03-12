@@ -20,27 +20,31 @@ categories: Compiler Thai
     เริ่มจากลองจินตนาการถึงภาษาที่ไม่มี **Type Inference** อย่างเช่น Java*(จริงๆแล้วมีในรูปแบบ Generics)* ในจาวานั้นเราจำเป็นต้องระบุชนิดของตัวแปรทุกตัว
     เพื่อให้คอมไพล์เลอร์สามารถสร้าง Symbol Table(ตารางสัญลักษณ์เพื่อช่วยในการคอมไพล์) ได้ถูกต้อง โดยรูปแบบทั่วไปที่พวกเราคุ้นเคยกันดีก็คือ
     
-    ```java
-    <ไทป์> <ชื่อตัวแปร> = new <คอนสตรัคเตอร์>;
-    //เช่น
-    String s = new String("abc"); //โดยปกติแล้วเราย่อเหลือแค่ String s = "abc"; แต่ขอให้เข้าใจว่ามันคือรูปแบบย่อ
-    Object o = new Object();
-    ```
+```java
+<ไทป์> <ชื่อตัวแปร> = new <คอนสตรัคเตอร์>;
+//เช่น
+String s = new String("abc"); //โดยปกติแล้วเราย่อเหลือแค่ String s = "abc"; แต่ขอให้เข้าใจว่ามันคือรูปแบบย่อ
+Object o = new Object();
+```
     
     แม้ว่าส่วนใหญ่แล้วไทป์ที่เราใช้กับคอนสครัคเตอร์มักจะเป็นตัวเดียวกัน แต่เราไม่สามารถย่อรูปแบบได้มากกว่านี้เนื่องจากมีโอกาสที่ instance จะเป็น subtype เช่น
-    ```java
-    Object o = new String("I'm object too");
-    ```
+
+```java
+Object o = new String("I'm object too");
+```
+
     ซึ่งการใช้งานในลักษณะนี้อันที่จริงแล้วเป็นความสามารถที่สำคัญของจาวาที่ทำให้เกิด Polymorphism เนื่องจากไทป์จะการันตีว่าตัวแปรนั้นจะมี methods/vars อยู่แน่ๆ(ถ้าไม่มีคอมไพล์ไม่ผ่านเกิด *Incompatible type error*)
     ตัวอย่างสุดคลาสสิคเช่นกำหนดให้ Circle, Square, Triangle เป็น Subtype ของ Shape และ Shape มี method draw อยู่ ดังนั้นเราจะทำแบบนี้ได้
-    ```java
-    Shape s = new Circle();
-    s.draw();
-    s = new Square();
-    s.draw();
-    s = new Triangle();
-    s.draw();
-    ```
+
+```java
+Shape s = new Circle();
+s.draw();
+s = new Square();
+s.draw();
+s = new Triangle();
+s.draw();
+```
+
     รูปแบบนี้ทำให้เราเขียนโค้ดได้สะดวก แต่แลกมาด้วย overhead และความยุ่งยากในการเขียนเนื่องจากต้องระบุไทป์ให้กับตัวแปรทุกตัว
 
 3. ทำไมต้องมี?
@@ -70,10 +74,12 @@ categories: Compiler Thai
 4. The most general type
     **Type inference** สมัยใหม่โดยมากจะให้ไทป์ผลลัพธ์เป็น **the most general type** ซึ่งก็คือไทป์ที่ใหญ่ที่สุดที่จะบรรจุค่าในขนาดที่โปรแกรมทำงานได้
     ยกตัวอย่างเช่น
-    ```haskell
-    map f [] = []
-    map f (first:rest) = f first : map f rest
-    ```
+
+```haskell
+map f [] = []
+map f (first:rest) = f first : map f rest
+```
+
     จากตัวอย่างสิ่งที่เกิดขึ้นจากการทำ **Type inference** สรุปเป็นขั้นตอนได้ดังนี้
     1. map ถูกตีความว่าเป็น function `a -> b -> c` โดยทราบจากรูปแบบ Syntax เป็นรูปแบบการนิยามฟังก์ชั่น
     2. [] และ (first:rest) เป็นรูปแบบของ list ดังนั้นเราให้เหตุผลได้ว่า b จะต้องเป็น list ของไทป์อะไรสักอย่าง d ( `b = [d]` )
@@ -90,18 +96,19 @@ categories: Compiler Thai
     สอดคล้องกับไทป์ทั้งหมด
     
     ตัวอย่าง algorithm unify จาก <https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system#Algorithm_W>
-    ```
-    unify(ta,tb):
-      ta = find(ta)
-      tb = find(tb)
-      if both ta,tb are terms of the form D p1..pn with identical D,n then
-        unify(ta[i],tb[i]) for each corresponding ith parameter
-      else
-      if at least one of ta,tb is a type variable then
-        union(ta,tb)
-      else
-        error 'types do not match'
-    ```
+
+```
+unify(ta,tb):
+  ta = find(ta)
+  tb = find(tb)
+  if both ta,tb are terms of the form D p1..pn with identical D,n then
+    unify(ta[i],tb[i]) for each corresponding ith parameter
+  else
+  if at least one of ta,tb is a type variable then
+    union(ta,tb)
+  else
+    error 'types do not match'
+```
 
 หากผู้อ่านสนใจศึกษารายละเอียดสามารถใช้ Keywords: Type inference, Hindley-Milner, Unification, Algorithm W เพิ่มเติมได้ครับ
 
