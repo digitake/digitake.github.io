@@ -22,7 +22,7 @@ categories: Compiler Thai
     
 ```java
 <ไทป์> <ชื่อตัวแปร> = new <คอนสตรัคเตอร์>;
-//เช่น
+//ตัวอย่างเช่น
 String s = new String("abc"); //โดยปกติแล้วเราย่อเหลือแค่ String s = "abc"; แต่ขอให้เข้าใจว่ามันคือรูปแบบย่อ
 Object o = new Object();
 ```
