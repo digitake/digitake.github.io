@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Type Inference ทำงานอย่างไร"
-date:   2016-03-11 16:40:00 +0700
+date:   2016-03-12 16:00:00 +0700
 categories: Compiler Thai
 ---
 
