@@ -138,3 +138,4 @@ unify(ta,tb):
 
 [Function ในแบบ Haskell]:https://medium.com/p/c403a9a2a7e9
 [Algorithm W]:http://catamorph.de/documents/AlgorithmW.pdf
+[HM Implementation in Haskell]:http://dev.stephendiehl.com/fun/006_hindley_milner.html
