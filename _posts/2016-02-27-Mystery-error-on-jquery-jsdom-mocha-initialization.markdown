@@ -2,7 +2,7 @@
 layout: post
 title:  "Mystery error on jquery, jsdom and mocha initialization."
 date:   2016-02-27 15:54:00 +0700
-categories: DOM, Mocha, JSDOM, jQuery 
+categories: DOM Mocha JSDOM jQuery 
 ---
 
 Today, I bumped into another mystery issue on my dev journey.

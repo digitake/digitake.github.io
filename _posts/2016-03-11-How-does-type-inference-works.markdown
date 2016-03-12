@@ -2,7 +2,7 @@
 layout: post
 title:  "Type Inference ทำงานอย่างไร"
 date:   2016-03-11 16:40:00 +0700
-categories: Compiler, Thai
+categories: Compiler Thai
 ---
 
 หลังจากได้อ่าน [Function ในแบบ Haskell] ของคุณ Weerasak Chongnguluam ไปสะดุดเข้ากับประโยคนึง 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Mocha and node require issues"
 date:   2016-02-25 13:49:00 +0700
-categories: Backbone, Javascript, Node.js, Mocha
+categories: Backbone Javascript Node.js Mocha
 ---
 
 Today, I ran into a problem which I've written a test for my Backbone.View but 

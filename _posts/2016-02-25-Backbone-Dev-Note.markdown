@@ -2,7 +2,7 @@
 layout: post
 title:  "Backbone development node"
 date:   2016-02-25 13:49:00 +0700
-categories: Backbone, Javascript, Node.js
+categories: Backbone Javascript Node.js
 ---
 
 Short note on dev:

@@ -2,7 +2,7 @@
 layout: post
 title:  "Backbone.View what el, $el and tagName are for?"
 date:   2016-02-24 19:44:00 +0700
-categories: Backbone, Javascript
+categories: Backbone Javascript
 ---
 
 tagName represents HTML tag 'type' of the current view object. If tagName is specified as 'li' then el property will be pointed 

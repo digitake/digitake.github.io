@@ -2,7 +2,7 @@
 layout: post
 title:  "DOM click event.target vs event.currentTarget"
 date:   2016-02-25 13:49:00 +0700
-categories: DOM, Javascript, HTML 
+categories: DOM Javascript HTML 
 ---
 
 `event.target` is an object that capture the event.
