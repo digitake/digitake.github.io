@@ -116,8 +116,8 @@ map f (first:rest) = f first : map f rest
 #### ทำงานยังไง: Unification and Substitution
 ในการทำงานจริงโดยมากเราใช้ [Algorithm W] ซึ่งเป็นผลงานของ Hindley-Milner Type inference
 แต่หัวใจหลักในการทำงานอยู่ที่คอนเซปง่ายๆในการ **รวมและแทนค่า(Unification and Substitution)**
-โดยตัว unification คือการพยายามหาจุดร่วมของไทป์โดยการขยับขึ้นข้างบน และ substitution คือการทดลองแทนที่ด้วยไทป์ที่จะทำให้เงื่อนไข
-สอดคล้องกับไทป์ทั้งหมด
+โดยตัว substitution คือการทดลองแทนที่ด้วยไทป์ที่จะทำให้เงื่อนไขสอดคล้องกับไทป์ทั้งหมด
+ส่วน unification คือการพยายามหาจุดร่วมของไทป์โดยการขยับขึ้นไปหา type ที่เป็น supertype(คล้ายๆsuperset) โดยการหา substitution ที่เป็นไปได้ 
 
 ตัวอย่าง algorithm unify จาก <https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system#Algorithm_W>
 
