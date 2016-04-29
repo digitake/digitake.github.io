@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Installing MongoDB by homebrew on El Capitan"
-date:   2016-04-23 24:55:00 +0700
+date:   2016-04-24 24:55:00 +0700
 categories: MongoDB Installation Homebrew 
 ---
 
