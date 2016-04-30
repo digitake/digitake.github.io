@@ -2,14 +2,15 @@
 layout: post
 title:  "Android ListView should be replaced with RecyclerView"
 date:   2016-04-29 22:21:00 +0700
-categories: Android listview  
+categories: Android ListView  
+tags: Android Development ListView RecyclerView
 ---
 
 ListView in android has been working fine for its task. However, with more requirment
 UI has to be more vivid as in material design or infinite scroll feature like in many social
 network apps. seems like it's a time for its retirement.
 
-Below is comparision from https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView
+Below is comparison from https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView
 
 > Compared to ListView
 > RecyclerView differs from its predecessor ListView primarily because of the following features:
@@ -31,3 +32,8 @@ Below is comparision from https://github.com/codepath/android_guides/wiki/Using-
     
 > Manual Click Detection
     - ListView has a AdapterView.OnItemClickListener interface for binding to the click events for individual items in the list. In contrast, RecyclerView only has support for RecyclerView.OnItemTouchListener which manages individual touch events but has no built-in click handling.
+    
+### References
+
+- <https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView>
+- <https://www.bignerdranch.com/blog/recyclerview-part-1-fundamentals-for-listview-experts/>
