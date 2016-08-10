@@ -9,7 +9,7 @@ To use firebase with cordova-android, one can follow these steps:
 
 1. create a new cordova build.
 
-        bash cordova create <path> <app-id> <project-name>
+        cordova create <path> <app-id> <project-name>
 
 2. add android platform.
 
