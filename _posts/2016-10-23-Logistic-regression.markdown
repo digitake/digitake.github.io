@@ -14,9 +14,9 @@ $$J(\theta) = -{1 \over m} \bigg[ \sum_{i=1}^m y^{(i)}log(h_\theta (x^{(i)}))+(1
 In order to prevent overfitting we can introduce a "regularization term" to the equation.
 Regularization term can be defined as:
 
-$${\lambda \over 2m}\sum_{j=i}^n \theta_j^2$$
+$${\lambda \over 2m}\sum_{j=1}^n \theta_j^2$$
 
 such that $$\lambda$$ represents a regularized factor i.e. higher value will reduce the cost variance.
 so our cost function with regularization becomes
 
-$$J(\theta) = -{1 \over m} \bigg[ \sum_{i=1}^m y^{(i)}log(h_\theta (x^{(i)}))+(1-y^{(i)})log(1-h_\theta (x^{(i)})) \bigg] + {\lambda \over 2m}\sum_{j=i}^n \theta_j^2$$
+$$J(\theta) = -{1 \over m} \bigg[ \sum_{i=1}^m y^{(i)}log(h_\theta (x^{(i)}))+(1-y^{(i)})log(1-h_\theta (x^{(i)})) \bigg] + {\lambda \over 2m}\sum_{j=1}^n \theta_j^2$$
