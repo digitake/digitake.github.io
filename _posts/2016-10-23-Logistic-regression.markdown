@@ -12,4 +12,9 @@ Cost function of logistic regression J is a function that is used to minimized
 error(difference) between target output $$y$$ and the result from hypothesis $$h_\theta$$.
 $$\theta$$ is a set of parameters. J can be defined as follows: 
 
-$$J(\theta) = -{1 \over m} \bigg[ \sum_{i=1}^m y^{(i)}log(h_\theta (x^{(i)}))+(1-y^{(i)})log(1-h_\theta (x^{(i)})) \bigg] $$ 
+$$J(\theta) = -{1 \over m} \bigg[ \sum_{i=1}^m y^{(i)}log(h_\theta (x^{(i)}))+(1-y^{(i)})log(1-h_\theta (x^{(i)})) \bigg] $$
+ 
+In order to prevent overfitting we can introduce a "regularization term" to the equation.
+Regularization term can be defined as:
+
+$${\lambda \over 2m}\sum_{j=i}^n \theta_j^2$$
