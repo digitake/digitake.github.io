@@ -28,4 +28,5 @@ and follow by a compilation of your new project in debug mode.
 `cocos compile -s <project-dir> -m debug -p android --app-abi armeabi:x86 --ap android-13`
 
 You might not need option `--ap` on your machine. This is environment specific. If you found out that
-cocos keep using a default android API version lover than 13. You'd better keep is option on.
+cocos keep using a default android API version lower than 13. You'd better keep is option on.
+Or another solution is to uninstall all your APIs which version are lower than 13, then you can omit this option.
