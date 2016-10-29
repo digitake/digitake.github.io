@@ -13,6 +13,8 @@ $$J(\theta) = -{1 \over m} \bigg[ \sum_{i=1}^m y^{(i)}log(h_\theta (x^{(i)}))+(1
 
 Note that cost function will be computed over all training samples of size $$m$$ whilst $$h(x)$$ is a hypothesis function.
 This function is an **approximated** representation of true function that map from $$x \longrightarrow y$$.
+
+Intuitively, the output of cost function tells us that "with the current set of weights(i.e. parameters) how far the current $$h(x)$$ predicts $$y$$".
  
 In order to prevent overfitting we can introduce a "regularization term" to the equation.
 Regularization term can be defined as:
