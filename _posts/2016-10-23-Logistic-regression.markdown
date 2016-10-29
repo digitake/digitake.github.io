@@ -10,6 +10,9 @@ error(difference) between target output $$y$$ and the result from hypothesis $$h
 $$\theta$$ is a set of parameters. J can be defined as follows: 
 
 $$J(\theta) = -{1 \over m} \bigg[ \sum_{i=1}^m y^{(i)}log(h_\theta (x^{(i)}))+(1-y^{(i)})log(1-h_\theta (x^{(i)})) \bigg] $$
+
+Note that cost function will be computed over all training samples of size $$m$$ whlist $$h(x)$$ is a hypothesis function.
+This function is an *approximated* representation of true function that map from $$x --> y$$.
  
 In order to prevent overfitting we can introduce a "regularization term" to the equation.
 Regularization term can be defined as:
