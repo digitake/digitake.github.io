@@ -50,7 +50,7 @@ task ndkBuild(type: Exec) {
 
 And then make it run before java compilation.
 
-```
+```gradle
 tasks.withType(JavaCompile) {
     compileTask -> compileTask.dependsOn ndkBuild
 }
@@ -62,7 +62,7 @@ Go to Application.mk and make sure that `APP_ABI := armeabi armeabi-v7a x86`.
 You may also want to separated `productFlavors` to create multiple apks.
 Just go back to `build.gradle` and add abiFilter as shown below:
 
-```
+```gradle
     productFlavors {
         x86 {
             ndk {
