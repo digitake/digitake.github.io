@@ -83,107 +83,106 @@ Just go back to `build.gradle` and add abiFilter as shown below:
     }
 ```
 
-Now you are ready to use android-studio to build Cocos game without hopping forth and back to console.
+Now you are ready to use android-studio to build Cocos game without hopping forth and back to console. Full build.gradle file is shown below:
 
-
-Full build.gradle file is shown below:
 ```gradle
-import org.apache.tools.ant.taskdefs.condition.Os
 
-apply plugin: 'com.android.application'
-
-android {
-    compileSdkVersion 22
-    buildToolsVersion '24.0.3'
-
-    defaultConfig {
-        applicationId "com.package.app"
-        minSdkVersion 10
-        targetSdkVersion 22
-        versionCode 10002
-        versionName "1.0.2"
-    }
-
-    sourceSets.main {
-        java.srcDir "src"
-        res.srcDir "res"
-        jniLibs.srcDir "libs"
-        manifest.srcFile "AndroidManifest.xml"
-        assets.srcDir "assets"
-        jni.srcDirs = []   //disable automatic ndk-build call
-    }
-
-    signingConfigs {
-
-        release {
-            if (project.hasProperty("RELEASE_STORE_FILE")) {
-                storeFile file(RELEASE_STORE_FILE)
-                storePassword RELEASE_STORE_PASSWORD
-                keyAlias RELEASE_KEY_ALIAS
-                keyPassword RELEASE_KEY_PASSWORD
+    import org.apache.tools.ant.taskdefs.condition.Os
+    
+    apply plugin: 'com.android.application'
+    
+    android {
+        compileSdkVersion 22
+        buildToolsVersion '24.0.3'
+    
+        defaultConfig {
+            applicationId "com.package.app"
+            minSdkVersion 10
+            targetSdkVersion 22
+            versionCode 10002
+            versionName "1.0.2"
+        }
+    
+        sourceSets.main {
+            java.srcDir "src"
+            res.srcDir "res"
+            jniLibs.srcDir "libs"
+            manifest.srcFile "AndroidManifest.xml"
+            assets.srcDir "assets"
+            jni.srcDirs = []   //disable automatic ndk-build call
+        }
+    
+        signingConfigs {
+    
+            release {
+                if (project.hasProperty("RELEASE_STORE_FILE")) {
+                    storeFile file(RELEASE_STORE_FILE)
+                    storePassword RELEASE_STORE_PASSWORD
+                    keyAlias RELEASE_KEY_ALIAS
+                    keyPassword RELEASE_KEY_PASSWORD
+                }
             }
         }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            if (project.hasProperty("RELEASE_STORE_FILE")) {
-                signingConfig signingConfigs.release
+    
+        buildTypes {
+            release {
+                minifyEnabled true
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                if (project.hasProperty("RELEASE_STORE_FILE")) {
+                    signingConfig signingConfigs.release
+                }
             }
         }
-    }
-
-    productFlavors {
-        x86 {
-            ndk {
-                abiFilter "x86"
+    
+        productFlavors {
+            x86 {
+                ndk {
+                    abiFilter "x86"
+                }
             }
-        }
-        armv7 {
-            ndk {
-                abiFilter "armeabi-v7a"
+            armv7 {
+                ndk {
+                    abiFilter "armeabi-v7a"
+                }
             }
-        }
-        arm {
-            ndk {
-                abiFilter "armeabi"
+            arm {
+                ndk {
+                    abiFilter "armeabi"
+                }
             }
+            fat
         }
-        fat
+    
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile project(':libcocos2dx')
+        compile 'com.android.support:appcompat-v7:22.2.1'
     }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':libcocos2dx')
-    compile 'com.android.support:appcompat-v7:22.2.1'
-}
-
-task cleanAssets(type: Delete) {
-    delete 'assets'
-}
-task copyAssets(type: Copy) {
-    from '../../Resources'
-    into 'assets'
-}
-
-// call regular ndk-build(.cmd) script from app directory
-task ndkBuild(type: Exec) {
-    def ndkDir = android.ndkDirectory.getAbsolutePath()
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        commandLine ndkDir+'/ndk-build.cmd', '-C', file('src/main').absolutePath
-    } else {
-        commandLine ndkDir+'/ndk-build', '-C', file('src/main').absolutePath
+    
+    task cleanAssets(type: Delete) {
+        delete 'assets'
     }
-}
-
-tasks.withType(JavaCompile) {
-    compileTask -> compileTask.dependsOn ndkBuild
-}
-
-
-clean.dependsOn cleanAssets
-preBuild.dependsOn copyAssets
+    
+    task copyAssets(type: Copy) {
+        from '../../Resources'
+        into 'assets'
+    }
+    
+    // call regular ndk-build(.cmd) script from app directory
+    task ndkBuild(type: Exec) {
+        def ndkDir = android.ndkDirectory.getAbsolutePath()
+        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+            commandLine ndkDir+'/ndk-build.cmd', '-C', file('src/main').absolutePath
+        } else {
+            commandLine ndkDir+'/ndk-build', '-C', file('src/main').absolutePath
+        }
+    }
+    
+    tasks.withType(JavaCompile) {
+        compileTask -> compileTask.dependsOn ndkBuild
+    }
+    
+    
+    clean.dependsOn cleanAssets
+    preBuild.dependsOn copyAssets
 ```
