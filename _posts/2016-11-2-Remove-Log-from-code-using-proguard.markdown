@@ -3,6 +3,7 @@ layout: post
 title:  "Remove Log from code using proguard"
 date:   2016-11-2 22:13:00 +0700
 categories: android, proguard, debugging
+comments: yes
 ---
 
 Android **Log** class is a great tool for debugging. However, leaving your code
