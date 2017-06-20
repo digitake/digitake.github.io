@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Docker"
+date:   2017-06-21 03:30:00 +0700
+categories: Docker
+comments: yes
+---
+
+Docker Hub is the place to store a docker image. Without it, we will
+ need to instal everything everytime docker image is spun off.
+ 
+Amazon has an equivalent version of Docker Hub as Amazon ECR. 
