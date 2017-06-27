@@ -21,3 +21,6 @@ train faster than Batch Gradient Descent.
 - Decay: A parameter to reduce learning rate when the traning converge to the
 optiomal point.
 
+- Adagrad: SGD with adaptive momentum and decay.
+
+- Adam: variant of Adagrad.
