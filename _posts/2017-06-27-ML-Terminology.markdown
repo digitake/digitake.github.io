@@ -15,3 +15,9 @@ learn minimize the cost function.
 - Minibatch Gradient Descent: A gredient descent thats tunes parameters 
 based on subset of training data. Oftenly, it performs better than SGD and
 train faster than Batch Gradient Descent.
+
+- Momentum(of Gradient Descent): An average value of SGD or minibatch.
+
+- Decay: A parameter to reduce learning rate when the traning converge to the
+optiomal point.
+
